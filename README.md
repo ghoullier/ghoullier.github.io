@@ -1,4 +1,19 @@
-ghoullier
-=========
+# [Phenomic](https://github.com/MoOx/phenomic) phenomic-theme-base
 
-Demo, Test, Proto, Blog, ...
+## Install dependencies
+
+```sh
+npm install
+```
+
+## Run development server
+
+```sh
+npm start
+```
+
+## Build for production
+
+```sh
+npm run build
+```

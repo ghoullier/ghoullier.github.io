@@ -1,0 +1,146 @@
+/* Using global sytles is not recommended, prefer local styles via CSS Modules */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Cormorant+Garamond:600i');
+
+/*
+ * box model like it should be
+ *
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ */
+html { box-sizing: border-box; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/*
+ * kill document defaults margin & padding. We all do that all the time, right ?
+ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * page styles
+ */
+html {
+  min-height: 100%;
+
+  /*background-image: linear-gradient(
+    to bottom right,
+    #FFFFFF, #80D8FF
+  );*/
+  background-color: #FFF;
+}
+
+body {
+  color: var(--colorText);
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+}
+
+body,
+code {
+  font-family: 'Open Sans', 'Source Sans Pro', Consolas, Menlo, 'DejaVu Sans Mono', monospace;
+}
+
+/*
+ * .phenomic-HeadingAnchor
+ *
+ * anchors for markdown headings, generated via markdown renderer, so require
+ * global styling
+ */
+@custom-selector :--headings h1, h2, h3, h4, h5, h6;
+
+:--headings {
+  position: relative;
+}
+
+:root {
+  --phenomic-HeadingAnchor-width: 1.4rem;
+  --phenomic-HeadingAnchor-margin: 0.4rem;
+}
+
+.phenomic-HeadingAnchor {
+  display: inline-block;
+  text-align: center;
+  margin-left: calc(-1 * (var(--phenomic-HeadingAnchor-width) + var(--phenomic-HeadingAnchor-margin)));
+  margin-right: var(--phenomic-HeadingAnchor-margin);
+  width: var(--phenomic-HeadingAnchor-width);
+  line-height: var(--phenomic-HeadingAnchor-width);
+  text-decoration: none;
+  opacity: 0.1;
+  transition: opacity 0.2s;
+
+  @nest :--headings:hover & {
+    opacity: 1;
+  }
+}
+
+/* minimal styling, prefer removing this and use local styles */
+a {
+  color: var(--colorSecondary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--colorNeutral);
+  opacity: 0.2;
+  margin: 2rem 0;
+}
+
+p {
+  margin-bottom: 2em;
+}
+
+h1,
+h2 {
+  line-height: 2em;
+  border-bottom: 1px solid #EEE;
+}
+
+h2:first-letter {
+  color: var(--colorSecondary);
+}
+
+img {
+  image-orientation: from-image;
+  /* fix the orientation not match to the source image */
+}
+
+pre {
+  margin: 20px 0;
+
+  /* overwrite inline code style */
+  & code {
+    background-color: none;
+    padding: 0;
+  }
+}
+
+code {
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  font-family: 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+  /* inline code style */
+  background-color: #F8F8F8;
+  padding: 0.2em;
+}
+
+@media (--mobile) {
+  :global(.hideIfMobile) {
+    display: none !important;
+  }
+}

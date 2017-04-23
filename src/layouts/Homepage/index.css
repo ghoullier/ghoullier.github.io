@@ -1,0 +1,70 @@
+.coverTitle {
+  z-index: 10;
+  font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  margin: auto;
+  transform: translateY(-50%);
+  color: var(--colorNeutralLight);
+  text-shadow: 0 0 10px var(--colorPrimaryDark), 0 0 6px var(--colorNeutralDark), 0 0 2px var(--colorNeutralDark);
+  letter-spacing: 1px;
+  text-align: center;
+  width: 100%;
+  padding: 0 1em;
+
+  & > .avatar {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    position: relative !important;
+    display: block;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+
+    @media (--mobile) {
+      height: 120px;
+      width: 120px;
+    }
+  }
+
+  @media (--mobile) {
+    font-size: 1.5rem;
+    padding: 0 20px;
+
+    & > span {
+      white-space: nowrap;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  padding: 2em 5em;
+  box-sizing: border-box;
+  max-width: var(--maxWidth);
+
+  @media (--mobile) {
+    padding: 20px;
+  }
+}
+
+.blockquote {
+  font-family: 'Cormorant Garamond', 'Open Sans';
+  font-size: 1.3em;
+  font-style: italic;
+  color: var(--colorText);
+}
+
+.buttonGroup {
+  font-size: 1rem;
+  display: block;
+  text-shadow: none;
+}
+
+.pre {
+  white-space: pre;
+}
